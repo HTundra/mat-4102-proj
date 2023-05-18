@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="bg-dark">
 <!-- 
     <div class="point-input" v-for="(point, index) in points" :key="index">
       <div class="form-group row">
@@ -65,6 +65,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+.page {
+  background-color: #222
+}
 .container {
   max-width: 800px;
   margin: 0 auto;
