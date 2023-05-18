@@ -37,25 +37,22 @@ export default {
         return {
             dataPoints: [{ x: 0, y: 0 }, { x: 1, y: 1 }, { x: 2, y: 4 }],
             interpolatedPoints: [],
-            xs : [0, 1, 1.5, 2.25],
-            ys : [2.0, 4.4366, 6.7134, 13.9130],
+            spline: {}
         };
     },
     mounted(){
-        const xs = [0, 1, 1.5, 2.25];
-        const ys = [2.0, 4.4366, 6.7134, 13.9130];
-        var spline = new Spline(xs, ys)
-        console.table(spline)
     },
     methods: {
-        // addDataPoint() {
-        //     this.dataPoints.push({ x: 0, y: 0 });
-        // },
-        // calculateInterpolation() {
-        //     // Perform cubic spline interpolation calculation using the data points
-        //     // Update the interpolatedPoints array with the generated curve points
-        //     // ...
-        // },
+        addDataPoint() {
+            this.dataPoints.push({ x: 0, y: 0 });
+    
+        },
+        calculateInterpolation() {
+            let xs = this.dataPoints.map((point) => point.x);
+            let ys = this.dataPoints.map((point)=> point.y);
+            this.spline = new Spline(xs, ys)
+            console.table(this.spline)
+        },
 
 
 
