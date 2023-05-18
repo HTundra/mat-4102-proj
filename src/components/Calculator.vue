@@ -13,17 +13,19 @@
                         </div>
                     </div>
                 </div>
-                <button @click="addDataPoint" class="btn btn-primary">Add Point</button>
+                <button @click="addDataPoint" class="btn btn-primary mr-2">Add Point</button>
+                <button @click="calculateInterpolation" class="btn btn-success mx-2">Calculate</button>
             </div>
-            <div class="output-section">
+            <div class="output-section" style="max-height: 100%">
                 <h2>Generated Curve</h2>
-                <div class="curve-output" id="curve-output">
+                <div id="chart-container">
+                <div id="curve-output">
+                </div>
                     <div v-for="(point, index) in interpolatedPoints" :key="index" class="point">
                         <span class="label">Point {{ index + 1 }}:</span>
                         <span class="value">{{ point }}</span>
                     </div>
                 </div>
-                <button @click="calculateInterpolation" class="btn btn-success">Calculate</button>
             </div>
         </div>
     </div>
@@ -44,16 +46,6 @@ export default {
         };
     },
     mounted() {
-        // const script = document.createElement('script')
-        // const start = document.createElement('script')
-        // start.text = `console.log('jquery object')`
-        // script.onload = () => {
-        //     document.body.appendChild(start)
-        //     console.log('onload!')
-        // }
-        // script.setAttribute('src', 'https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js')
-        // document.body.appendChild(script)
-        
     },
     methods: {
         addDataPoint() {
@@ -91,11 +83,12 @@ export default {
             //create the series and name them
             var series = chart.line(seriesData);
             series.name("DATA");
-
+            chart.xScale(Anychart.scales.linear())
+            chart.yScale(Anychart.scales.linear())
             //add a legend
-            chart.title("Sample Data for Cubic Splicing");
+            chart.title("Output Graph");
             //specify where to display the chart
-            chart.container("curve-output");
+            chart.container("curve-output")
             //draw the chart
             chart.draw();
         }
@@ -119,6 +112,20 @@ h1 {
 
 h2 {
     margin-bottom: 10px;
+}
+
+#chart-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Creates a 1:1 aspect ratio */
+}
+
+#curve-output {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
 }
 
 .calculator {
