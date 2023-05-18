@@ -2,8 +2,6 @@
 
 This is a project we're making for our Math 4103 course.
 
-![logo](https://repository-images.githubusercontent.com/217154004/11cb2b80-1edf-11eb-95b8-5b50543ffe63)
-
 ## Getting Started
 
 Clone project and enter in folder:
