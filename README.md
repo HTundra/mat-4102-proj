@@ -1,8 +1,6 @@
-# Vue/Bootstrap Boilerplate
+# Cubic Spline Interpolation Project
 
-🦾 Starter boilerplate with Vue.js & Bootstrap\
-📦 Vue, Bootstrap 5, Vuex, Vue-Router, Sass/Scss, ESLint, Axios\
-⌚ Last update: 3/16/2022
+This is a project we're making for our Math 4103 course.
 
 ![logo](https://repository-images.githubusercontent.com/217154004/11cb2b80-1edf-11eb-95b8-5b50543ffe63)
 
@@ -38,8 +36,12 @@ npm run serve
 We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors ✨
-
-- **guillaumeduhan** - _Initial work_ - [Github](https://github.com/guillaumeduhan)
+- **Kent Bacatan**
+- **Oscar Cabarron III**
+- **Jude Michael Dagatan**
+- **Rich Tristan Lim**
+- **Lance Maurice Tezon**
+- **guillaumeduhan** - _Boilerplate author_ - [Github](https://github.com/guillaumeduhan)
 
 ## License
 
