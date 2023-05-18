@@ -37,7 +37,10 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors ✨
 - **Kent Bacatan**
+- **Oscar Cabarron III**
+- **Jude Michael Dagatan**
 - **Rich Tristan Lim**
+- **Lance Maurice Tezon**
 - **guillaumeduhan** - _Boilerplate author_ - [Github](https://github.com/guillaumeduhan)
 
 ## License
