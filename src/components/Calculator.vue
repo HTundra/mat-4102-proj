@@ -17,7 +17,7 @@
             </div>
             <div class="output-section">
                 <h2>Generated Curve</h2>
-                <div class="curve-output">
+                <div class="curve-output" id="curve-output">
                     <div v-for="(point, index) in interpolatedPoints" :key="index" class="point">
                         <span class="label">Point {{ index + 1 }}:</span>
                         <span class="value">{{ point }}</span>
@@ -30,30 +30,75 @@
 </template>
   
 <script>
-import {Spline} from '../classes/spline.js'
+import Anychart from 'anychart'
+import { Spline } from '../classes/spline.js'
 export default {
     name: "Calculator",
     data() {
         return {
             dataPoints: [{ x: 0, y: 0 }, { x: 1, y: 1 }, { x: 2, y: 4 }],
             interpolatedPoints: [],
-            spline: {}
+            spline: {},
+            chartData: [],
+
         };
     },
-    mounted(){
+    mounted() {
+        // const script = document.createElement('script')
+        // const start = document.createElement('script')
+        // start.text = `console.log('jquery object')`
+        // script.onload = () => {
+        //     document.body.appendChild(start)
+        //     console.log('onload!')
+        // }
+        // script.setAttribute('src', 'https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js')
+        // document.body.appendChild(script)
+        
     },
     methods: {
         addDataPoint() {
             this.dataPoints.push({ x: 0, y: 0 });
-    
+
         },
         calculateInterpolation() {
             let xs = this.dataPoints.map((point) => point.x);
-            let ys = this.dataPoints.map((point)=> point.y);
+            let ys = this.dataPoints.map((point) => point.y);
             this.spline = new Spline(xs, ys)
             console.table(this.spline)
+            this.drawChart()
         },
+        drawChart() {
+            //insert data
+            let i, j, x
+            for (i = 0; i < 50; i++) {
+                j = i * 0.1;
+                this.chartData.push([j, this.spline.at(j)]);
+            }
 
+            for (x = 0; x < this.chartData.length; x++) {
+                console.log(this.chartData[x]);
+            }
+
+            //create data set
+            var dataSet = Anychart.data.set(this.chartData);
+
+            //map the data
+            var seriesData = dataSet.mapAs({ x: 0, value: 1 });
+
+            //create a line chart
+            var chart = Anychart.line();
+
+            //create the series and name them
+            var series = chart.line(seriesData);
+            series.name("DATA");
+
+            //add a legend
+            chart.title("Sample Data for Cubic Splicing");
+            //specify where to display the chart
+            chart.container("curve-output");
+            //draw the chart
+            chart.draw();
+        }
 
 
     },
