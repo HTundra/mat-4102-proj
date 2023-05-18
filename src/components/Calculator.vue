@@ -8,8 +8,9 @@
                     <div v-for="(point, index) in dataPoints" :key="index" class="data-point">
                         <label>Point {{ index + 1 }}:</label>
                         <div class="input-group">
-                            <input type="number" v-model="point.x" placeholder="X" step="0.01" />
+                            <input type="number" v-model="point.x" placeholder="X" step="0.01" /> 
                             <input type="number" v-model="point.y" placeholder="Y" step="0.01" />
+                            <button @click="deleteDataPoint(index)" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -50,6 +51,9 @@ export default {
         addDataPoint() {
             this.dataPoints.push({ x: 0, y: 0 });
 
+        },
+        deleteDataPoint(index) {
+            this.dataPoints.splice(index, 1);
         },
         calculateInterpolation() {
             let xs = this.dataPoints.map((point) => point.x);
