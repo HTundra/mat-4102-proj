@@ -41,8 +41,7 @@ export default {
             dataPoints: [{ x: 0, y: 0 }, { x: 1, y: 1 }, { x: 2, y: 4 }],
             interpolatedPoints: [],
             spline: {},
-            chartData: [],
-
+            isChartDisplayed: false
         };
     },
     mounted() {
@@ -61,24 +60,27 @@ export default {
         },
         drawChart() {
             //insert data
+            document.getElementById('curve-output').innerHTML = "" //hacky way of clearing the chart
             let i, j, x
+            let chartData = []
             for (i = 0; i < 50; i++) {
                 j = i * 0.1;
-                this.chartData.push([j, this.spline.at(j)]);
+                chartData.push([j, this.spline.at(j)]);
             }
 
-            for (x = 0; x < this.chartData.length; x++) {
-                console.log(this.chartData[x]);
+            for (x = 0; x < chartData.length; x++) {
+                console.log(chartData[x]);
             }
 
             //create data set
-            var dataSet = Anychart.data.set(this.chartData);
+            var dataSet = Anychart.data.set(chartData);
 
             //map the data
             var seriesData = dataSet.mapAs({ x: 0, value: 1 });
 
             //create a line chart
             var chart = Anychart.line();
+            chart.line(null)
 
             //create the series and name them
             var series = chart.line(seriesData);
@@ -91,6 +93,7 @@ export default {
             chart.container("curve-output")
             //draw the chart
             chart.draw();
+            this.isChartDisplayed = true
         }
 
 
