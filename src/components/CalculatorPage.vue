@@ -21,7 +21,7 @@ export default {
     name: 'CalculatorPage',
     data() {
         return {
-            toggleValue: false
+            toggleValue: true
         };
     },
     mounted() {
