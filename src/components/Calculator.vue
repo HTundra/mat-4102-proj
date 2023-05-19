@@ -10,7 +10,7 @@
                                 <div class="input-group">
                                     <input type="number" v-model="point.x" placeholder="X" step="0.01" />
                                     <input type="number" v-model="point.y" placeholder="Y" step="0.01" />
-                                    <button @click="deleteDataPoint(index)" class="btn btn-danger">Delete</button>
+                                    <font-awesome-icon :icon="['fas', 'trash']" style="color: #fe3434;" @click="deleteDataPoint(index)" class="pointer"/>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +94,10 @@ export default {
 </script>
   
 <style scoped>
+
+.pointer{
+    cursor:pointer;
+}
 .calculator-page {
     padding: 20px;
     background-color: #222;

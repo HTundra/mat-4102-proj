@@ -20,7 +20,7 @@
                                 <div class="input-group">
                                     <input type="number" v-model="point.x" placeholder="X" step="0.01" />
                                     <input type="number" v-model="point.y" placeholder="Y" step="0.01" />
-                                    <button @click="deleteDataPoint(index)" class="btn btn-danger">Delete</button>
+                                    <button @click="deleteDataPoint(index)" class="btn btn-danger">Delete</button><font-awesome-icon :icon="['fas', 'trash']" />
                                 </div>
                             </div>
                         </div>

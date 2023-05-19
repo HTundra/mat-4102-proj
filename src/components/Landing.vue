@@ -7,7 +7,7 @@
             <!-- <a href="#calculator" class="btn btn-light btn-lg">Get Started</a> -->
             <router-link to="/calculatorPage" class="btn btn-success">Get Started</router-link>
         </header>
-
+ <font-awesome-icon icon="fa-regular fa-trash" />
         <!-- Calculator Section -->
         <section id="calculator" class="py-5" style="background-color: #222">
             <div class="container">

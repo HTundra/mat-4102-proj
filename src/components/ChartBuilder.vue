@@ -29,12 +29,13 @@
                     placeholder="January"
                     step="0.01"
                     class="input-field"
+                    style="margin-right: 10px"
                   />
-                  <button @click="deleteDataPoint(index)" class="btn btn-danger">Delete</button>
+                  <font-awesome-icon :icon="['fas', 'trash']" style="color: #fe3434;" @click="deleteDataPoint(index)" class="pointer"/>
                 </div>
               </div>
               <div class="buttons">
-                <button @click="addDataPoint" id="addDataPoint" class="btn btn-primary">Add Point</button>
+                <button @click="addDataPoint" id="addDataPoint" class="btn btn-primary" style="margin-right: 10px;">Add Point</button>
                 <button @click="deleteDataSet(ndx)" class="btn btn-danger">Delete Dataset</button>
               </div>
             </div>
@@ -152,6 +153,9 @@
   </script>
   
   <style>
+  .pointer{
+    cursor: pointer;
+  }
   .chart-container {
     position: relative;
     width: 100%;
