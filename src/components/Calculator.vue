@@ -63,6 +63,7 @@ export default {
             this.drawChart();
         },
         drawChart() {
+            document.getElementById('curve-output').innerHTML = '';
             const chartData = [];
             for (let i = 0; i < 50; i++) {
                 const j = i * 0.1;
