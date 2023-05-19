@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "../components/Home";
 import Notfound from "../components/NotFound";
-import Calculator from "../components/Calculator";
+import CalculatorPage from "../components/CalculatorPage"
 
 const routes = [
   {
@@ -15,9 +15,9 @@ const routes = [
     component: Notfound
   },
   {
-    path: "/calculator",
-    name: "Calculator",
-    component: Calculator
+    path: "/calculatorPage",
+    name: "CalculatorPage",
+    component: CalculatorPage
   }
 ];
 

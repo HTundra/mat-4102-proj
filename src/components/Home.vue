@@ -26,40 +26,26 @@
       <h2 class="subtitle">Solution</h2>
       <p>{{ solution }}</p>
     </div> -->
-    <SplineChart/>
+    <Landing/>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import SplineChart from './SplineChart.vue';
+import Landing from './Landing.vue';
 // import {Line} from 'vue-chart-js'
 export default defineComponent({
   name: 'Home',
   data() {
     return {
-      points: [
-        { x: null, y: null },
-        { x: null, y: null }
-      ],
-      solution: null
     };
   },
   components:{
-    SplineChart
+    Landing
   },
   methods: {
-    addPoint() {
-      this.points.push({ x: null, y: null });
-    },
-    calculateSolution() {
-      // Perform the cubic spline interpolation calculations
-      // ... (your code here) ...
-      this.solution = 'Solution';
-    }
   },
   mounted() {
-    this.calculateSolution();
   }
 });
 </script>

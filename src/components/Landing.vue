@@ -5,7 +5,7 @@
             <h1 class="display-4">Cubic Spline Interpolation Calculator</h1>
             <p class="lead">Effortlessly compute smooth curves</p>
             <!-- <a href="#calculator" class="btn btn-light btn-lg">Get Started</a> -->
-            <router-link to="/calculator" class="btn btn-success">Get Started</router-link>
+            <router-link to="/calculatorPage" class="btn btn-success">Get Started</router-link>
         </header>
 
         <!-- Calculator Section -->
@@ -87,19 +87,20 @@ import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
 export default {
-    name: 'SplineChart',
+    name: 'Landing',
     components: {
         LineChart
     },
     setup() {
         const data = {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: ["January", "February", "March", "April", "May", "June"],
             datasets: [
                 {
-                    label: "At point:",
+                    label: "Tilapia Inventory (tons)",
                     data: [12, 19, 3, 5, 2, 3],
                     cubicInterpolationMode: "monotone",
                     borderColor: '#FFFFFF',
+                    backgroundColor: '#FFFFFF'
                 },
             ],
         };
