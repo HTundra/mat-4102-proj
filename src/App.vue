@@ -4,6 +4,7 @@
     <div class="container">
       <p>BACATAN, CABARRON, DAGATAN, LIM, TEZON</p>
       <p>MMXXIII</p>
+      <p>You can view the code repository on GitHub by clicking <a href="https://github.com/HTundra/mat-4102-proj/tree/vue-3">this link</a></p>
     </div>
   </footer>
 </template>
